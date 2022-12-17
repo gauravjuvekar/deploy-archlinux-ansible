@@ -1,0 +1,32 @@
+all:
+  hosts:
+    in.gjuvekar.com:
+    us.gjuvekar.com:
+    eu.gjuvekar.com:
+  vars:
+    ansible_ssh_user: root
+  children:
+    cloud:
+      hosts:
+        in.gjuvekar.com:
+        us.gjuvekar.com:
+        eu.gjuvekar.com:
+    us:
+      hosts:
+        us.gjuvekar.com:
+    in:
+      hosts:
+        in.gjuvekar.com:
+    eu:
+      hosts:
+        eu.gjuvekar.com:
+    aws:
+      hosts:
+        in.gjuvekar.com:
+    hetzner:
+      hosts:
+        eu.gjuvekar.com:
+        us.gjuvekar.com:
+    near_storage:
+      hosts:
+        eu.gjuvekar.com:
