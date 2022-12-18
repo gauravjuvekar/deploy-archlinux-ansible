@@ -1,0 +1,3 @@
+[submodule "thirdparty/vps2arch"]
+	path = thirdparty/vps2arch
+	url = git@github.com:gauravjuvekar/vps2arch.git
