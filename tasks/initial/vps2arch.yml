@@ -1,0 +1,9 @@
+---
+- name: vps2arch
+  hosts: cloud
+  remote_user: root
+
+  tasks:
+    - name: convert_ubuntu_to_arch
+      ansible.builtin.script:
+        cmd: "../../thirdparty/vps2arch/vps2arch"
