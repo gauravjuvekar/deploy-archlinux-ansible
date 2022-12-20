@@ -1,0 +1,44 @@
+---
+- name: harden_ssh
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: sshd_harden_1
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        state: absent
+        regexp: '^\s*PasswordAuthentication\s*yes.*$'
+
+    - name: sshd_harden_2
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#\s*PasswordAuthentication.*$'
+        line: "PasswordAuthentication no"
+
+    - name: sshd_harden_3
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        state: absent
+        regexp: '^\s*KbdInteractiveAuthentication\s*yes.*$'
+
+    - name: sshd_harden_4
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#\s*KbdInteractiveAuthentication.*$'
+        line: "KbdInteractiveAuthentication no"
+
+    - name: sshd_harden_5
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        state: absent
+        regexp: '^\s*PermitRootLogin\s*(yes|no).*$'
+
+    - name: sshd_harden_6
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#\s*PermitRootLogin.*$'
+        line: "PermitRootLogin prohibit-password"
+
+    - name: restart_sshd
+      ansible.builtin.command: /usr/bin/systemctl restart sshd
