@@ -40,4 +40,74 @@
         insertafter: '^#\s*PermitRootLogin.*$'
         line: "PermitRootLogin prohibit-password"
 
+    - name: sshd_harden_7
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        state: absent
+        regexp: '^\s*HostKey\s*.*ecdsa.*$'
+
+    - name: sshd_harden_8
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#?HostKey.*$'
+        line: "HostKey /etc/ssh/ssh_host_rsa_key"
+
+    - name: sshd_harden_9
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#?HostKey.*$'
+        line: "HostKey /etc/ssh/ssh_host_ed25519_key"
+
+    - name: sshd_harden_10
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        state: absent
+        regexp: '^\s*KexAlgorithms\s+.*$'
+
+    - name: sshd_harden_11
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#\s*Cipher.*$'
+        line: "KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512"
+
+    - name: sshd_harden_12
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        state: absent
+        regexp: '^\s*Ciphers\s+.*$'
+
+    - name: sshd_harden_13
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#\s*Cipher.*$'
+        line: "Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-gcm@openssh.com,aes256-gcm@openssh.com,chacha20-poly1305@openssh.com"
+
+    - name: sshd_harden_14
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        state: absent
+        regexp: '^\s*MACs\s+.*$'
+
+    - name: sshd_harden_15
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#\s*Cipher.*$'
+        line: "MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com"
+
+    - name: sshd_harden_16
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        state: absent
+        regexp: '^\s*HostKeyAlgorithms\s+.*$'
+
+    - name: sshd_harden_17
+      ansible.builtin.lineinfile:
+        path: "/etc/ssh/sshd_config"
+        insertafter: '^#\s*Cipher.*$'
+        line: "HostKeyAlgorithms ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,sk-ssh-ed25519@openssh.com,sk-ssh-ed25519-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-512-cert-v01@openssh.com,rsa-sha2-256,rsa-sha2-256-cert-v01@openssh.com"
+
+    - name: sshd_harden_18
+      ansible.builtin.shell:
+        cmd: "awk '$5 >= 3071' < /etc/ssh/moduli > /etc/ssh/moduli.safe && mv /etc/ssh/moduli.safe /etc/ssh/moduli"
+
     - import_tasks: ./restart_sshd.yml
