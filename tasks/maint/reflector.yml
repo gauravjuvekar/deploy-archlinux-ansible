@@ -1,0 +1,8 @@
+---
+- name: reflector
+  hosts: cloud
+  remote_user: root
+
+  tasks:
+    - name: run_reflector
+      ansible.builtin.command: /usr/bin/reflector --ipv6 -l 30 -p https --sort rate --save /etc/pacman.d/mirrorlist
