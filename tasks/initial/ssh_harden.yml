@@ -40,5 +40,4 @@
         insertafter: '^#\s*PermitRootLogin.*$'
         line: "PermitRootLogin prohibit-password"
 
-    - name: restart_sshd
-      ansible.builtin.command: /usr/bin/systemctl restart sshd
+    - import_tasks: ./restart_sshd.yml

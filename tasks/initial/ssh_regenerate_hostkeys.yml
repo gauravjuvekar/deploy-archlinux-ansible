@@ -1,0 +1,11 @@
+---
+- name: regenerate_hostkeys
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: regenerate_hostkeys
+      ansible.builtin.script:
+        cmd: "./ssh_regenerate_hostkeys.sh"
+
+    - import_tasks: ./restart_sshd.yml
