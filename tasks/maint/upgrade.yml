@@ -1,0 +1,10 @@
+---
+- name: upgrade
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: run_pacman_syu
+      community.general.pacman:
+        update_cache: yes
+        upgrade: yes
