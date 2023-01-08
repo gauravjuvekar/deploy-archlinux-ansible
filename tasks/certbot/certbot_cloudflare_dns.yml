@@ -1,0 +1,13 @@
+---
+- name: Install_certbot_dns
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: Copy_cloudflare_api_key
+      ansible.builtin.copy:
+        dest: "/root/certbot_cloudflare_dns_key.key"
+        owner: "root"
+        group: "root"
+        mode: 0400
+        src: dns-api-token.{{ inventory_hostname }}.txt
