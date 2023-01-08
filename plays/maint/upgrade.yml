@@ -6,5 +6,5 @@
   tasks:
     - name: run_pacman_syu
       community.general.pacman:
-        update_cache: yes
-        upgrade: yes
+        update_cache: true
+        upgrade: true
