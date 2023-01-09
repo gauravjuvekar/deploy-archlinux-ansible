@@ -1,0 +1,29 @@
+---
+- name: Setup_wireguard_between_cloud
+  hosts: cloud
+  remote_user: root
+  vars:
+    privkey: "/etc/wireguard/host.key"
+    pubkey: "/etc/wireguard/host.pub"
+
+  tasks:
+    - name: Install_wireguard
+      community.general.pacman:
+        name: wireguard-tools
+        state: present
+
+    - name: Create_private_key
+      ansible.builtin.shell:
+        creates: "{{ privkey }}"
+        cmd: "(umask u=r,g=,o= ; /usr/bin/wg genkey > {{ privkey }})"
+
+    - name: Create_public_key
+      ansible.builtin.shell:
+        creates: "{{ pubkey }}"
+        cmd: "(umask u=r,g=,o= ; /usr/bin/wg pubkey < {{ privkey }} > {{ pubkey }})"
+
+    - name: Fetch_public_key
+      ansible.builtin.fetch:
+        src: "{{ pubkey }}"
+        dest: generated_pubkeys/{{ inventory_hostname }}.pub
+        flat: true
