@@ -2,12 +2,41 @@
 - name: Install_certbot_dns
   hosts: all
   remote_user: root
+  vars:
+    dns_cloudflare_ini_file: "/root/certbot_cloudflare_dns_key.ini"
+    email: "gauravjuvekar@gmail.com"
 
   tasks:
     - name: Copy_cloudflare_api_key
       ansible.builtin.copy:
-        dest: "/root/certbot_cloudflare_dns_key.key"
+        dest: "{{ dns_cloudflare_ini_file }}"
         owner: "root"
         group: "root"
         mode: 0400
-        src: dns-api-token.{{ inventory_hostname }}.txt
+        src: "dns-api-token.{{ inventory_hostname }}.txt"
+
+    - name: Install_certbot_dns_cloudflare
+      community.general.pacman:
+        name: certbot-dns-cloudflare
+        state: present
+
+    - name: Obtain_or_renew_certs
+      ansible.builtin.command:
+        creates: "/etc/letsencrypt/live/{{ fqdn }}/cert.pem"
+        argv:
+          - /usr/bin/certbot
+          - --non-interactive
+          - --agree-tos
+          - --no-eff-email
+          - --email
+          - "{{ email }}"
+          - certonly
+          - --dns-cloudflare
+          - --dns-cloudflare-credentials
+          - "{{ dns_cloudflare_ini_file }}"
+          - --dns-cloudflare-propagation-seconds
+          - 60
+          - -d
+          - "{{ fqdn }}"
+          - -d
+          - "*.{{ fqdn }}"

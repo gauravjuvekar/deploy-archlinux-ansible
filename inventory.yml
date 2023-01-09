@@ -1,13 +1,16 @@
 all:
+  vars:
+    ansible_ssh_user: root
   hosts:
     cloud_in:
       ansible_host: in.gjuvekar.com
+      fqdn: in.gjuvekar.com
     cloud_us:
       ansible_host: us.gjuvekar.com
+      fqdn: us.gjuvekar.com
     cloud_eu:
       ansible_host: eu.gjuvekar.com
-  vars:
-    ansible_ssh_user: root
+      fqdn: eu.gjuvekar.com
   children:
     cloud:
       hosts:
