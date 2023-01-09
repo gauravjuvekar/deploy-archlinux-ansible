@@ -40,3 +40,9 @@
           - "{{ fqdn }}"
           - -d
           - "*.{{ fqdn }}"
+
+    - name: Start_renewal_systemd_timer
+      ansible.builtin.systemd:
+        name: certbot-renew.timer
+        enabled: true
+        state: started
