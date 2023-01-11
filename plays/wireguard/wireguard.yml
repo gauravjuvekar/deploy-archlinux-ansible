@@ -6,6 +6,7 @@
     privkey: "/etc/wireguard/host.key"
     pubkey: "/etc/wireguard/host.pub"
     peer_conf: "/etc/wireguard/peers.conf"
+    host_conf: "/etc/wireguard/wgvpn0.conf"
     wg_listen_port: 51820
 
   tasks:
@@ -36,3 +37,12 @@
         mode: u=r,g=r,o=r
         owner: root
         group: root
+
+    - name: Save_host_conf
+      ansible.builtin.template:
+        src: templates/wgvpn0.conf.j2
+        dest: "{{ host_conf }}"
+        mode: u=r,g=r,o=r
+        owner: root
+        group: root
+

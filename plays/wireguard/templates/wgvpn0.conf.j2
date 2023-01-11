@@ -1,0 +1,5 @@
+[Interface]
+ListenPort = {{ wg_listen_port }}
+Address = {{ wg_lan_ips | join(', ') }}
+PostUp = /usr/bin/wg set %i private-key {{ privkey }}
+PostUp = /usr/bin/wg addconf %i {{ peer_conf }}
