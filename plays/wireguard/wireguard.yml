@@ -46,3 +46,8 @@
         owner: root
         group: root
 
+    - name: Enable_on_startup
+      ansible.builtin.systemd:
+        name: wg-quick@wgvpn0
+        enabled: true
+        state: started
