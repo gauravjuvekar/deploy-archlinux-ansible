@@ -20,14 +20,14 @@
         creates: "{{ privkey }}"
         cmd: "(umask u=r,g=,o= ; /usr/bin/wg genkey > {{ privkey }})"
 
-    - name: Create_public_key
-      ansible.builtin.shell:
-        cmd: "(umask u=r,g=,o= ; /usr/bin/wg pubkey < {{ privkey }} > {{ pubkey }})"
-
     - name: Fetch_public_key_as_var
-      ansible.builtin.slurp:
-        src: "{{ pubkey }}"
-      register: wg_pub_key
+      ansible.builtin.shell:
+        cmd: "/usr/bin/wg pubkey < {{ privkey }}"
+      register: pubkey_fetch_result
+
+    - name: Save_public_key_as_fact
+      ansible.builtin.set_fact:
+        wg_pub_key: "{{ pubkey_fetch_result.stdout | trim }}"
 
     - name: Save_peer_conf
       ansible.builtin.template:

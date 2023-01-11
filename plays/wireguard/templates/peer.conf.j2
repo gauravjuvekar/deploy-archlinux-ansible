@@ -1,6 +1,6 @@
 {% for peer in ansible_play_hosts_all %}
 [Peer]
-PublicKey = {{ hostvars[peer].wg_pub_key.content | b64decode | trim }}
+PublicKey = {{ hostvars[peer].wg_pub_key }}
 AllowedIPs = {{ hostvars[peer].wg_lan_ips |
                 ansible.utils.ipaddr('address') |
                 ansible.utils.ipaddr('host') |
