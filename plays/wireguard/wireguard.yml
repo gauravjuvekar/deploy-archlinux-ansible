@@ -22,7 +22,6 @@
 
     - name: Create_public_key
       ansible.builtin.shell:
-        creates: "{{ pubkey }}"
         cmd: "(umask u=r,g=,o= ; /usr/bin/wg pubkey < {{ privkey }} > {{ pubkey }})"
 
     - name: Fetch_public_key_as_var
