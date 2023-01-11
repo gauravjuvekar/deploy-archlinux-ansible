@@ -5,12 +5,18 @@ all:
     cloud_in:
       ansible_host: in.gjuvekar.com
       fqdn: in.gjuvekar.com
+      wg_lan_ips:
+        - 10.3.0.1/32
     cloud_us:
       ansible_host: us.gjuvekar.com
       fqdn: us.gjuvekar.com
+      wg_lan_ips:
+        - 10.3.0.2/32
     cloud_eu:
       ansible_host: eu.gjuvekar.com
       fqdn: eu.gjuvekar.com
+      wg_lan_ips:
+        - 10.3.0.3/32
   children:
     cloud:
       hosts:

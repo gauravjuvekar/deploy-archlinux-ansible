@@ -1,0 +1,9 @@
+{% for peer in ansible_play_hosts_all %}
+[Peer]
+PublicKey = {{ hostvars[peer].wg_pub_key['content'] | b64decode | trim }}
+AllowedIPs = {{ hostvars[peer].wg_lan_ips | join(', ') }}
+Endpoint = {{ hostvars[peer].fqdn }}:{{ wg_listen_port }}
+{% if not loop.last %}
+
+{% endif %}
+{% endfor %}

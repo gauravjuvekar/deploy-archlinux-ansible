@@ -5,6 +5,8 @@
   vars:
     privkey: "/etc/wireguard/host.key"
     pubkey: "/etc/wireguard/host.pub"
+    peer_conf: "/etc/wireguard/peers.conf"
+    wg_listen_port: 51820
 
   tasks:
     - name: Install_wireguard
@@ -22,8 +24,15 @@
         creates: "{{ pubkey }}"
         cmd: "(umask u=r,g=,o= ; /usr/bin/wg pubkey < {{ privkey }} > {{ pubkey }})"
 
-    - name: Fetch_public_key
-      ansible.builtin.fetch:
+    - name: Fetch_public_key_as_var
+      ansible.builtin.slurp:
         src: "{{ pubkey }}"
-        dest: generated_pubkeys/{{ inventory_hostname }}.pub
-        flat: true
+      register: wg_pub_key
+
+    - name: Save_peer_conf
+      ansible.builtin.template:
+        src: templates/peer.conf.j2
+        dest: "{{ peer_conf }}"
+        mode: u=r,g=r,o=r
+        owner: root
+        group: root
