@@ -50,4 +50,4 @@
       ansible.builtin.systemd:
         name: wg-quick@wgvpn0
         enabled: true
-        state: started
+        state: restarted
