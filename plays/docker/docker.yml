@@ -18,11 +18,19 @@
           - python-docker
         state: present
 
+    - name: Copy_docker_daemon_config
+      ansible.builtin.copy:
+        src: daemon.json
+        dest: /etc/docker/daemon.json
+        owner: root
+        group: root
+        mode: u=r,g=r,o=r
+
     - name: Enable_docker_service
       ansible.builtin.systemd:
         name: docker.service
         enabled: true
-        state: started
+        state: restarted
 
     - name: Create_new_swarm
       when: inventory_hostname == swarm_initial_leader
