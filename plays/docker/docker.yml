@@ -1,0 +1,43 @@
+---
+- name: Install_docker_swarm
+  hosts: cloud
+  remote_user: root
+  vars:
+    swarm_listen_iface: wgvpn0
+    swarm_advertise_iface: wgvpn0
+    swarm_data_path_iface: wgvpn0
+    swarm_listen_port: 2377
+    swarm_initial_leader: cloud_us
+
+  tasks:
+    - name: Install_docker
+      community.general.pacman:
+        name:
+          - docker
+          - python-docker
+        state: present
+
+    - name: Enable_docker_service
+      ansible.builtin.systemd:
+        name: docker.service
+        enabled: true
+        state: started
+
+    - name: Create_new_swarm
+      when: inventory_hostname == swarm_initial_leader
+      community.docker.docker_swarm:
+        state: present
+        advertise_addr: "{{ swarm_advertise_iface }}"
+        data_path_addr: "{{ swarm_data_path_iface }}"
+        listen_addr: "{{ swarm_listen_iface }}:{{ swarm_listen_port }}"
+      register: swarm_settings
+
+    - name: Join_swarm
+      when: inventory_hostname != swarm_initial_leader
+      community.docker.docker_swarm:
+        state: join
+        advertise_addr: "{{ swarm_advertise_iface }}"
+        data_path_addr: "{{ swarm_data_path_iface }}"
+        listen_addr: "{{ swarm_listen_iface }}:{{ swarm_listen_port }}"
+        join_token: "{{ hostvars[swarm_initial_leader].swarm_settings.swarm_facts.JoinTokens.Manager }}"
+        remote_addrs: "{{ hostvars[swarm_initial_leader].wg_lan_ips | ansible.utils.ipaddr('address') | join(', ') }}"
