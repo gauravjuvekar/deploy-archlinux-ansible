@@ -1,0 +1,26 @@
+---
+- name: Install_docker_swarm
+  hosts: cloud
+  remote_user: root
+
+  tasks:
+    - name: Install_stack_depends
+      community.general.pacman:
+        name:
+          - python-jsondiff
+          - python-yaml
+        state: present
+
+    - name: Copy_compose_file
+      ansible.builtin.copy:
+        src: docker-compose.yml
+        dest: "/root/docker-compose.yml"
+
+    - name: Deploy_stack
+      community.docker.docker_stack:
+        state: present
+        name: web
+        prune: true
+        compose:
+          - /root/docker-compose.yml
+      run_once: true

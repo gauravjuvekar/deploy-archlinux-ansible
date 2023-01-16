@@ -1,0 +1,27 @@
+---
+- name: Install_httpd
+  hosts: all
+  remote_user: root
+  vars:
+    frontpage_path: "/home/httpd-frontpage"
+
+  tasks:
+    - name: Mkdir
+      ansible.builtin.file:
+        state: directory
+        path: "{{ frontpage_path }}/public-html"
+        owner: "root"
+        group: "root"
+
+    - name: Copy_srv_files
+      ansible.builtin.copy:
+        src: "public-html"
+        dest: "{{ frontpage_path }}"
+        owner: "root"
+        group: "root"
+        mode: 0400
+
+    - name: Generate_index_html
+      ansible.builtin.template:
+        src: index.html.j2
+        dest: "{{ frontpage_path }}/public-html/index.html"

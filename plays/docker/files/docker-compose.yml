@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  # web_ingress:
+  #   image: haproxy:alpine
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   deploy:
+  #     mode: global
+
+  frontpage:
+    image: httpd:alpine
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+    volumes:
+      - /home/httpd-frontpage/public-html:/usr/local/apache2/htdocs/
+    deploy:
+      mode: global
