@@ -1,0 +1,15 @@
+---
+- name: Convenience_utils
+  hosts: all
+  remote_user: root
+
+  tasks:
+    - name: Install_convenient_packages
+      community.general.pacman:
+        name:
+          - fd
+          - net-tools
+          - the_silver_searcher
+          - tree
+          - vi
+        state: present
