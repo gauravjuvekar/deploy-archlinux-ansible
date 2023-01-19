@@ -1,0 +1,38 @@
+# generated 2023-01-16, Mozilla Guideline v5.6, HAProxy 2.1, OpenSSL 1.1.1k, modern configuration
+# https://ssl-config.mozilla.org/#server=haproxy&version=2.1&config=modern&openssl=1.1.1k&guideline=5.6
+global
+    ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+    ssl-default-bind-options prefer-client-ciphers no-sslv3 no-tlsv10 no-tlsv11 no-tlsv12 no-tls-tickets
+
+    ssl-default-server-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+    ssl-default-server-options no-sslv3 no-tlsv10 no-tlsv11 no-tlsv12 no-tls-tickets
+
+    user root
+    group root
+
+defaults
+    timeout connect 10s
+    timeout client 30s
+    timeout server 10s
+    log global
+    mode http
+    option httplog
+    maxconn 3000
+
+frontend http-ingress
+    bind *:80
+    bind *:443 ssl crt /usr/local/etc/haproxy/fullchain.pem alpn h2,http/1.1
+    redirect scheme https code 301 if !{ ssl_fc }
+
+    # http-response set-header Strict-Transport-Security max-age=300
+
+    default_backend frontpage
+
+frontend stats
+    bind *:8000
+    stats enable
+    stats uri /
+    stats refresh 10s
+
+backend frontpage
+    server s0 frontpage:80 check

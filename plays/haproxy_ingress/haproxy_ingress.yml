@@ -1,0 +1,36 @@
+---
+- name: Install_haproxy_ingress
+  hosts: cloud
+  remote_user: root
+  vars:
+    conf_path: "/home/haproxy-ingress"
+    tls_fullchain_path: "{{ conf_path }}/fullchain.pem"
+    tls_privkey_path: "{{ tls_fullchain_path }}.key"
+
+  tasks:
+    - name: Mkdir
+      ansible.builtin.file:
+        state: directory
+        path: "{{ conf_path }}"
+        owner: "root"
+        group: "root"
+
+    - name: Link_tls_files
+      ansible.builtin.file:
+        follow: false
+        owner: "root"
+        group: "root"
+        mode: "u=r,g=,o="
+        state: link
+        dest: "{{ item.dest }}"
+        src: "{{ item.src }}"
+      loop:
+        - { src: "/etc/letsencrypt/live/{{ fqdn }}/fullchain.pem",
+            dest: "{{ tls_fullchain_path }}"}
+        - { src: "/etc/letsencrypt/live/{{ fqdn }}/privkey.pem",
+            dest: "{{ tls_privkey_path }}"}
+
+    - name: Generate_config
+      ansible.builtin.template:
+        src: haproxy.cfg.j2
+        dest: "{{ conf_path }}/haproxy.cfg"

@@ -1,20 +1,42 @@
 version: "3.9"
 services:
-  # web_ingress:
-  #   image: haproxy:alpine
-  #   ports:
-  #     - 80:80
-  #     - 443:443
-  #   deploy:
-  #     mode: global
-
-  frontpage:
-    image: httpd:alpine
+  ingress:
+    image: haproxy:alpine
     ports:
       - target: 80
         published: 80
         protocol: tcp
         mode: host
+      - target: 443
+        published: 443
+        protocol: tcp
+        mode: host
+      - target: 8000
+        published: 8000
+        protocol: tcp
+        mode: host
+    volumes:
+      - type: bind
+        source: /home/haproxy-ingress
+        target: /usr/local/etc/haproxy
+        read_only: true
+      - type: bind
+        source: /etc/letsencrypt/archive
+        target: /etc/letsencrypt/archive
+        read_only: true
+      - type: bind
+        source: /etc/letsencrypt/live
+        target: /etc/letsencrypt/live
+        read_only: true
+    # Running haproxy as non-root within the container makes SSL certificates inaccessible
+    user: root
+    deploy:
+      mode: global
+
+  frontpage:
+    image: httpd:alpine
+    expose:
+      - 80
     volumes:
       - /home/httpd-frontpage/public-html:/usr/local/apache2/htdocs/
     deploy:
