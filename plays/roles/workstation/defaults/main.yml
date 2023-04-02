@@ -15,5 +15,10 @@ official_gui_packages:
 official_cli_packages:
   - git
   - neovim
+  - the_silver_searcher
   - tree
 pacman_packages: "{{ official_cli_packages + official_gui_packages }}"
+aur_cli_packages: []
+aur_gui_packages:
+  - mint-themes
+aur_packages: "{{ aur_cli_packages + aur_gui_packages }}"
