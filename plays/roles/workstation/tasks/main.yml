@@ -1,2 +1,5 @@
-- name: Install_workstation
-  import_tasks: archlinux_pkgs.yml
+- name: Install_aur_builder
+  ansible.builtin.import_tasks: aur_builder.yml
+
+- name: Install_arch_packages
+  ansible.builtin.import_tasks: archlinux_pkgs.yml

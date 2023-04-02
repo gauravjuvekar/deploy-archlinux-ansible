@@ -1,0 +1,21 @@
+---
+- name: Make_pkgs_user
+  ansible.builtin.user:
+    name: pkgs
+    create_home: true
+
+- name: Install_sudo_prereqs
+  community.general.pacman:
+    name:
+      - sudo
+    state: present
+
+- name: Allow_pkgs_sudo
+  ansible.builtin.lineinfile:
+    path: "/etc/sudoers.d/03_pkgs"
+    line: 'pkgs ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+    create: true
+    owner: root
+    group: root
+    mode: '0640'
+    validate: 'visudo -cf %s'

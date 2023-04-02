@@ -1,4 +1,5 @@
 ---
-- hosts: workstation
+- name: Setup_workstation_packages_and_config
+  hosts: workstation
   roles:
     - workstation
