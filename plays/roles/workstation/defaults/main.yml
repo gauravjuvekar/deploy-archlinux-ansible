@@ -1,2 +1,19 @@
 ---
 aur_builder_username: pkgs
+official_gui_packages:
+  - alacritty
+  - cinnamon
+  - digikam
+  - eog
+  - firefox
+  - gimp
+  - gnome-terminal
+  - gvim
+  - inkscape
+  - nemo
+  - shotwell
+official_cli_packages:
+  - git
+  - neovim
+  - tree
+pacman_packages: "{{ official_cli_packages + official_gui_packages }}"
