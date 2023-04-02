@@ -20,7 +20,17 @@ all:
       wg_lan_ips:
         - 10.3.0.3/16
         - fdb9:2407:ac94::3001/48
+    dt_sc:
+      ansible_host: 192.168.1.170
+      fqdn: dt.sc.gjuvekar.com
+      target_user:
   children:
+    sc:
+      hosts:
+        dt_sc:
+    workstation:
+      hosts:
+        dt_sc:
     cloud:
       hosts:
         cloud_in:
