@@ -1,0 +1,2 @@
+- name: Install_workstation
+  import_tasks: archlinux_pkgs.yml

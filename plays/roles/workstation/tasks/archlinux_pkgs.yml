@@ -1,0 +1,17 @@
+---
+- name: Install_packages
+  community.general.pacman:
+    name:
+      - alacritty
+      - cinnamon
+      - digikam
+      - eog
+      - firefox
+      - gimp
+      - gnome-terminal
+      - gvim
+      - inkscape
+      - nemo
+      - neovim
+      - shotwell
+    state: present
