@@ -19,3 +19,27 @@
     group: root
     mode: '0640'
     validate: 'visudo -cf %s'
+
+- name: Install_yay
+  become: true
+  become_user: "{{ aur_builder_username }}"
+  block:
+    - name: Make_pkgs_dirs
+      ansible.builtin.file:
+        state: directory
+        path: "/home/{{ aur_builder_username }}/manual"
+        mode: '0755'
+
+    - name: Clone_yay
+      ansible.builtin.git:
+        repo: "https://aur.archlinux.org/yay.git"
+        dest: "/home/{{ aur_builder_username }}/manual/yay"
+
+    - name: Build_and_install_yay
+      ansible.builtin.command:
+        chdir: "/home/{{ aur_builder_username }}/manual/yay"
+        argv:
+          - "/usr/bin/makepkg"
+          - "-sfi"
+          - "--noconfirm"
+        creates: "/usr/bin/yay"
