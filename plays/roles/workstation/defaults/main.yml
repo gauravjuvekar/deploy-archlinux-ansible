@@ -12,13 +12,20 @@ official_gui_packages:
   - inkscape
   - nemo
   - shotwell
+  - xcursor-themes
+  - xcursor-vanilla-dmz
+  - xcursor-vanilla-dmz-aa
 official_cli_packages:
+  - fd
   - git
+  - man-db
   - neovim
+  - parallel
   - the_silver_searcher
   - tree
 pacman_packages: "{{ official_cli_packages + official_gui_packages }}"
 aur_cli_packages: []
 aur_gui_packages:
   - mint-themes
+  - mint-x-icons
 aur_packages: "{{ aur_cli_packages + aur_gui_packages }}"
