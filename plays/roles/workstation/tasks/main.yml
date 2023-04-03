@@ -15,3 +15,26 @@
     name: "{{ aur_packages }}"
     state: present
     update_cache: true
+
+- name: Configure_in_dconf
+  become: true
+  become_user: "{{ main_user }}"
+  block:
+    - name: Static_dconf_kv_pairs
+      community.general.dconf:
+        key: "{{ item.key }}"
+        value: "{{ item.value }}"
+        state: present
+      loop: "{{ dconf_settings }}"
+
+    - name: Cinnamon_panels_read
+      community.general.dconf:
+        key: "/org/cinnamon/panels-height"
+        state: read
+      register: cinnamon_panel_heights_px
+
+    - name: Cinnamon_panels_write
+      community.general.dconf:
+        key: "/org/cinnamon/panels-height"
+        value: "{{ cinnamon_panel_heights_px.value | cinnamon_array_str_value(value=25, key=None) }}"
+        state: present

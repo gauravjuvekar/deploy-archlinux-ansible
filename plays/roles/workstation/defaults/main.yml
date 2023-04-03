@@ -1,4 +1,5 @@
 ---
+main_user: gaurav
 aur_builder_username: pkgs
 official_gui_packages:
   - alacritty
@@ -29,3 +30,8 @@ aur_gui_packages:
   - mint-themes
   - mint-x-icons
 aur_packages: "{{ aur_cli_packages + aur_gui_packages }}"
+dconf_settings:
+  - { key: "/org/cinnamon/desktop/interface/cursor-theme", value: "'Vanilla-DMZ'" }
+  - { key: "/org/cinnamon/desktop/interface/gtk-theme", value: "'Mint-Y-Dark'" }
+  - { key: "/org/cinnamon/desktop/interface/icon-theme", value: "'Mint-X'" }
+  - { key: "/org/cinnamon/theme/name", value: "'Mint-Y-Dark'" }
