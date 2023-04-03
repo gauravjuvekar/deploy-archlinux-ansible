@@ -12,7 +12,7 @@ def replace_array_str(input_str, value, key=None):
 
     def replace(in_variant):
         for s in in_variant.unpack():
-            k, v = s.split(':')
+            k, _, v = s.rpartition(':')
             if key is None or key == k:
                 v = value
             yield f'{k}:{v}'
