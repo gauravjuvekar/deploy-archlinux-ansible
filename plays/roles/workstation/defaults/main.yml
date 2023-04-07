@@ -31,7 +31,19 @@ aur_gui_packages:
   - mint-x-icons
 aur_packages: "{{ aur_cli_packages + aur_gui_packages }}"
 dconf_settings:
+  - { key: "/org/cinnamon/desktop/interface/clock-use-24h", value: "true" }
   - { key: "/org/cinnamon/desktop/interface/cursor-theme", value: "'Vanilla-DMZ'" }
+  - { key: "/org/cinnamon/desktop/interface/first-day-of-week", value: "1" }
   - { key: "/org/cinnamon/desktop/interface/gtk-theme", value: "'Mint-Y-Dark'" }
   - { key: "/org/cinnamon/desktop/interface/icon-theme", value: "'Mint-X'" }
+  - { key: "/org/cinnamon/desktop/screensaver/lock-enabled", value: "false" }
+  - { key: "/org/cinnamon/desktop/sound/maximum-volume", value: "150" }
+  - { key: "/org/cinnamon/desktop/wm/preferences/action-middle-click-titlebar", value: "'toggle-shade'" }
+  - { key: "/org/cinnamon/desktop/wm/preferences/action-scroll-titlebar", value: "'opacity'" }
+  - { key: "/org/cinnamon/desktop/wm/preferences/button-layout", value: "'menu:minimize,maximize,close'" }
+  - { key: "/org/cinnamon/desktop/wm/preferences/mouse-button-modifier", value: "'<Super>'" }
+  - { key: "/org/cinnamon/muffin/workspace-cycle", value: "true" }
+  - { key: "/org/cinnamon/settings-daemon/plugins/power/lock-on-suspend", value: "true" }
   - { key: "/org/cinnamon/theme/name", value: "'Mint-Y-Dark'" }
+  - { key: "/org/cinnamon/workspace-expo-view-as-grid", value: "true" }
+  - { key: "/org/gnome/desktop/interface/clock-format", value: "'24h'" }
