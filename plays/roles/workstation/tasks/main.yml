@@ -1,3 +1,6 @@
+- name: Network
+  ansible.builtin.import_tasks: network.yml
+
 - name: Install_aur_builder
   ansible.builtin.import_tasks: aur_builder.yml
 
