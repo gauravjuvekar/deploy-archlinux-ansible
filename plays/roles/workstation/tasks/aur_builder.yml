@@ -30,7 +30,7 @@
         path: "/home/{{ aur_builder_username }}/manual"
         mode: '0755'
 
-    - name: Clone_yay
+    - name: Clone_yay  # noqa latest[git]
       ansible.builtin.git:
         repo: "https://aur.archlinux.org/yay.git"
         dest: "/home/{{ aur_builder_username }}/manual/yay"
