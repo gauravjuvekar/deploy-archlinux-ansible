@@ -1,0 +1,21 @@
+- name: Create_timesyncd_override_dir
+  ansible.builtin.file:
+    path: "/etc/systemd/timesyncd.conf.d"
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Configure_timesyncd_override
+  ansible.builtin.template:
+    src: timesyncd_ntp.j2
+    dest: "/etc/systemd/timesyncd.conf.d/ntp.conf"
+    mode: u=r,g=r,o=r
+    owner: root
+    group: root
+
+- name: Start_systemd_timesyncd
+  ansible.builtin.systemd:
+    name: systemd-timesyncd
+    enabled: true
+    state: started
