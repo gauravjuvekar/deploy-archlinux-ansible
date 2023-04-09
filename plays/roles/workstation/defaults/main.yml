@@ -3,35 +3,75 @@ main_user: gaurav
 aur_builder_username: pkgs
 official_gui_packages:
   - alacritty
+  - baobab
+  - bless
   - cinnamon
   - digikam
   - eog
   - firefox
+  - flameshot
+  - freecad
+  - galculator
   - gimp
+  - gnome-calculator
+  - gnome-disk-utility
+  - gnome-system-monitor
   - gnome-terminal
+  - gnucash
   - gvim
   - inkscape
+  - kicad
+  - libreoffice-fresh
+  - meld
+  - mpv
   - nemo
+  - obs-studio
+  - pdfarranger
+  - screenkey
   - shotwell
+  - shutter
+  - sqlitebrowser
+  - vlc
   - xcursor-themes
   - xcursor-vanilla-dmz
   - xcursor-vanilla-dmz-aa
+  - xreader
 official_cli_packages:
+  - atop
+  - base-devel
+  - bear
+  - clang
   - fd
+  - gdb
   - git
+  - htop
+  - iotop
   - man-db
   - neovim
   - parallel
+  - pdftk
+  - python-pdftotext
+  - qpdf
+  - ripgrep
+  - rust
+  - sqlite
   - the_silver_searcher
   - tree
 official_lib_packages:
   - gnome-keyring
+  - unixodbc
 pacman_packages: "{{ official_cli_packages + official_gui_packages + official_lib_packages }}"
 aur_cli_packages: []
+aur_lib_packages:
+  - libreoffice-extension-apso
+  - sqliteodbc
 aur_gui_packages:
+  - all-repository-fonts
   - mint-themes
   - mint-x-icons
-aur_packages: "{{ aur_cli_packages + aur_gui_packages }}"
+  - ttf-comic-mono-git
+  - ttf-tahoma
+aur_packages: "{{ aur_cli_packages + aur_gui_packages + aur_lib_packages }}"
 dconf_settings:
   - { key: "/org/cinnamon/desktop/interface/clock-use-24h", value: "true" }
   - { key: "/org/cinnamon/desktop/interface/cursor-theme", value: "'Vanilla-DMZ'" }
