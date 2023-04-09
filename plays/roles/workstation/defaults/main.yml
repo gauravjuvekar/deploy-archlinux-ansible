@@ -24,7 +24,9 @@ official_cli_packages:
   - parallel
   - the_silver_searcher
   - tree
-pacman_packages: "{{ official_cli_packages + official_gui_packages }}"
+official_lib_packages:
+  - gnome-keyring
+pacman_packages: "{{ official_cli_packages + official_gui_packages + official_lib_packages }}"
 aur_cli_packages: []
 aur_gui_packages:
   - mint-themes
