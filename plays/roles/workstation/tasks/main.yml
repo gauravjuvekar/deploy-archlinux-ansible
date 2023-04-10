@@ -19,37 +19,5 @@
     state: present
     update_cache: true
 
-- name: Configure_in_dconf
-  become: true
-  become_user: "{{ main_user }}"
-  block:
-    - name: Static_dconf_kv_pairs
-      community.general.dconf:
-        key: "{{ item.key }}"
-        value: "{{ item.value }}"
-        state: present
-      loop: "{{ dconf_settings }}"
-
-    - name: Cinnamon_panels_height_read
-      community.general.dconf:
-        key: "/org/cinnamon/panels-height"
-        state: read
-      register: cinnamon_panel_heights_px
-
-    - name: Cinnamon_panels_height_write
-      community.general.dconf:
-        key: "/org/cinnamon/panels-height"
-        value: "{{ cinnamon_panel_heights_px.value | cinnamon_array_str_value(value=25, key=None) }}"
-        state: present
-
-    - name: Cinnamon_panels_pos_read
-      community.general.dconf:
-        key: "/org/cinnamon/panels-enabled"
-        state: read
-      register: cinnamon_panels_pos
-
-    - name: Cinnamon_panels_pos_write
-      community.general.dconf:
-        key: "/org/cinnamon/panels-enabled"
-        value: "{{ cinnamon_panels_pos.value | cinnamon_array_str_value(value='top', key=None) }}"
-        state: present
+- name: Configure_dconf
+  ansible.builtin.import_tasks: dconf.yml
