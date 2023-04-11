@@ -1,5 +1,4 @@
 ---
-main_user: gaurav
 aur_builder_username: pkgs
 official_gui_packages:
   - alacritty

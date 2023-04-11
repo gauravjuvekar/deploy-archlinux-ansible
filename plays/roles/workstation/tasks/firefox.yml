@@ -1,0 +1,9 @@
+---
+- name: Create_default_release_profile
+  firefox_profile:
+    state: present
+  register: ff_profile
+
+- name: Print_ff_profile
+  ansible.builtin.debug:
+    var: ff_profile

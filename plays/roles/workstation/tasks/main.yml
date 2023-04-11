@@ -21,3 +21,8 @@
 
 - name: Configure_dconf
   ansible.builtin.import_tasks: dconf.yml
+
+- name: Configure_firefox
+  become: true
+  become_user: "{{ main_user }}"
+  ansible.builtin.import_tasks: firefox.yml

@@ -23,7 +23,7 @@ all:
     dt_sc:
       ansible_host: 192.168.1.170
       fqdn: dt.sc.gjuvekar.com
-      target_user:
+      main_user: gaurav
   children:
     sc:
       hosts:
