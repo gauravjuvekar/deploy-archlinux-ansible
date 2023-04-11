@@ -4,6 +4,7 @@ aur_builder_username: pkgs
 official_gui_packages:
   - alacritty
   - baobab
+  - barrier
   - bless
   - cinnamon
   - digikam
