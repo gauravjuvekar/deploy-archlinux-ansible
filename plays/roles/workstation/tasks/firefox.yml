@@ -4,6 +4,10 @@
     state: present
   register: ff_profile
 
-- name: Print_ff_profile
-  ansible.builtin.debug:
-    var: ff_profile
+- name: Copy_user_prefs_js
+  ansible.builtin.copy:
+    src: firefox_user_prefs.js
+    dest: "{{ ff_profile.profile_path }}/user.js"
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: '0600'
