@@ -47,6 +47,7 @@ official_cli_packages:
   - htop
   - iotop
   - man-db
+  - openbsd-netcat
   - neovim
   - parallel
   - pdftk
@@ -57,6 +58,7 @@ official_cli_packages:
   - sqlite
   - the_silver_searcher
   - tree
+  - websocat
 official_lib_packages:
   - gnome-keyring
   - unixodbc
