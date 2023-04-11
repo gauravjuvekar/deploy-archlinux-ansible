@@ -39,16 +39,18 @@ official_gui_packages:
 official_cli_packages:
   - atop
   - base-devel
+  - bat
   - bear
   - clang
+  - dust
   - fd
   - gdb
   - git
   - htop
   - iotop
   - man-db
-  - openbsd-netcat
   - neovim
+  - openbsd-netcat
   - parallel
   - pdftk
   - python-pdftotext
