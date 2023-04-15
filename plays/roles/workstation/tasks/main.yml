@@ -32,3 +32,8 @@
     name: pcscd.socket
     enabled: true
     state: started
+
+- name: Configure_syncthing
+  become: true
+  become_user: "{{ main_user }}"
+  ansible.builtin.import_tasks: syncthing.yml

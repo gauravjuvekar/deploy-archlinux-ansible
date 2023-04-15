@@ -59,7 +59,9 @@ official_cli_packages:
   - qpdf
   - ripgrep
   - rust
+  - socat
   - sqlite
+  - syncthing
   - the_silver_searcher
   - tree
   - websocat
@@ -79,6 +81,7 @@ aur_gui_packages:
   - all-repository-fonts
   - mint-themes
   - mint-x-icons
+  - syncthing-gtk
   - ttf-comic-mono-git
   - ttf-tahoma
 aur_packages: "{{ aur_cli_packages + aur_gui_packages + aur_lib_packages }}"

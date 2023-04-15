@@ -1,0 +1,6 @@
+- name: Enable_syncthing
+  ansible.builtin.systemd:
+    name: syncthing
+    enabled: true
+    state: started
+    scope: user
