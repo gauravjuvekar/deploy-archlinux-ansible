@@ -36,6 +36,8 @@ official_gui_packages:
   - xcursor-vanilla-dmz
   - xcursor-vanilla-dmz-aa
   - xreader
+  - yubikey-manager-qt
+  - yubikey-personalization-gui
 official_cli_packages:
   - atop
   - base-devel
@@ -61,8 +63,12 @@ official_cli_packages:
   - the_silver_searcher
   - tree
   - websocat
+  - yubikey-manager
+  - yubikey-personalization
 official_lib_packages:
   - gnome-keyring
+  - libfido2
+  - pam-u2f
   - unixodbc
 pacman_packages: "{{ official_cli_packages + official_gui_packages + official_lib_packages }}"
 aur_cli_packages: []
