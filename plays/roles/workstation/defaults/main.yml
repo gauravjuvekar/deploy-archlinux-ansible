@@ -50,6 +50,7 @@ official_cli_packages:
   - git
   - htop
   - iotop
+  - iperf3
   - man-db
   - neovim
   - openbsd-netcat
