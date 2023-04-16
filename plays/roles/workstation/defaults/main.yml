@@ -103,6 +103,8 @@ dconf_settings:
   - { key: "/org/cinnamon/desktop/keybindings/wm/switch-to-workspace-7", value: "['<Super>7']" }
   - { key: "/org/cinnamon/desktop/keybindings/wm/switch-to-workspace-8", value: "['<Super>8']" }
   - { key: "/org/cinnamon/desktop/keybindings/wm/switch-to-workspace-9", value: "['<Super>9']" }
+  - { key: "/org/cinnamon/desktop/media-handling/automount-open", value: "false" }
+  - { key: "/org/cinnamon/desktop/media-handling/autorun-never", value: "true" }
   - { key: "/org/cinnamon/desktop/screensaver/lock-enabled", value: "false" }
   - { key: "/org/cinnamon/desktop/sound/maximum-volume", value: "150" }
   - { key: "/org/cinnamon/desktop/wm/preferences/action-middle-click-titlebar", value: "'toggle-shade'" }
@@ -114,3 +116,17 @@ dconf_settings:
   - { key: "/org/cinnamon/theme/name", value: "'Mint-Y-Dark'" }
   - { key: "/org/cinnamon/workspace-expo-view-as-grid", value: "true" }
   - { key: "/org/gnome/desktop/interface/clock-format", value: "'24h'" }
+  - { key: "/org/nemo/icon-view/captions", value: "['mime_type', 'permissions', 'date_modified']" }
+  - { key: "/org/nemo/list-view/default-column-order", value: "['name', 'size', 'type', 'date_modified', 'date_created_with_time', 'date_accessed', 'date_created', 'detailed_type', 'group', 'where', 'mime_type', 'date_modified_with_time', 'octal_permissions', 'owner', 'permissions']" }
+  - { key: "/org/nemo/list-view/default-visible-columns", value: "['name', 'size', 'type', 'date_modified', 'mime_type', 'octal_permissions']" }
+  - { key: "/org/nemo/preferences/date-format", value: "'informal'" }
+  - { key: "/org/nemo/preferences/default-folder-viewer", value: "'list-view'" }
+  - { key: "/org/nemo/preferences/show-advanced-permissions", value: "true" }
+  - { key: "/org/nemo/preferences/show-computer-icon-toolbar", value: "true" }
+  - { key: "/org/nemo/preferences/show-home-icon-toolbar", value: "true" }
+  - { key: "/org/nemo/preferences/show-new-folder-icon-toolbar", value: "true" }
+  - { key: "/org/nemo/preferences/show-open-in-terminal-toolbar", value: "true" }
+  - { key: "/org/nemo/preferences/show-reload-icon-toolbar", value: "true" }
+  - { key: "/org/nemo/preferences/size-prefixes", value: "'base-2'" }
+  - { key: "/org/nemo/preferences/thumbnail-limit", value: "uint64 104857600" }
+  - { key: "/org/nemo/sidebar-panels/tree/show-only-directories", value: "false" }
