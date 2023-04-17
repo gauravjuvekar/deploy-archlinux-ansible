@@ -48,3 +48,8 @@
   become: true
   become_user: "{{ main_user }}"
   ansible.builtin.import_tasks: mounts.yml
+
+- name: User_autostart
+  become: true
+  become_user: "{{ main_user }}"
+  ansible.builtin.import_tasks: autostart.yml

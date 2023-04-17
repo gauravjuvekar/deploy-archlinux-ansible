@@ -1,0 +1,16 @@
+- name: Ensure_autostart
+  ansible.builtin.file:
+    state: directory
+    path: "/home/{{ main_user }}/.config/autostart"
+    mode: '0700'
+
+- name: Copy_autostart
+  ansible.builtin.copy:
+    src: "files/autostart/{{ item }}.desktop"
+    dest: "/home/{{ main_user }}/.config/autostart/{{ item }}.desktop"
+    mode: '0644'
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+  with_items:
+    - "flameshot"
+    - "shutter"

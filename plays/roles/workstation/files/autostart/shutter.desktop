@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Shutter
+Exec=shutter
+Icon=shutter
+Terminal=false
+Type=Application
