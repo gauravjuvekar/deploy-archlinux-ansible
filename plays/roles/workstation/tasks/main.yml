@@ -37,3 +37,14 @@
   become: true
   become_user: "{{ main_user }}"
   ansible.builtin.import_tasks: syncthing.yml
+
+- name: Fuse_mounts
+  ansible.builtin.lineinfile:
+    path: "/etc/fuse.conf"
+    insertafter: '^#user_allow_other'
+    line: 'user_allow_other'
+
+- name: User_mounts
+  become: true
+  become_user: "{{ main_user }}"
+  ansible.builtin.import_tasks: mounts.yml

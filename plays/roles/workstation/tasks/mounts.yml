@@ -1,0 +1,21 @@
+- name: Ensure_mnt
+  ansible.builtin.file:
+    state: directory
+    path: "/home/{{ main_user }}/mnt"
+    mode: '0755'
+
+- name: Gnucash_mount_systemd_file
+  ansible.builtin.template:
+    src: templates/systemd_gnucash_readonly.mount.j2
+    dest: "/home/{{ main_user }}/.config/systemd/user/home-{{ main_user }}-mnt-gnucash_readonly.mount"
+    mode: '0644'
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+
+- name: Gnucash_enable_mount
+  ansible.builtin.systemd:
+    name: "home-{{ main_user }}-mnt-gnucash_readonly.mount"
+    enabled: true
+    state: started
+    daemon_reload: true
+    scope: user

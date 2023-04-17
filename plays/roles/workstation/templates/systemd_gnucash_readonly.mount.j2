@@ -1,0 +1,11 @@
+[Unit]
+Description=Read only mount of gnucash for libreoffice base odbc connector
+
+[Mount]
+What=%h/Documents/finances/gnucash
+Where=/home/{{ main_user }}/mnt/gnucash_readonly
+Type=fuse.bindfs
+Options=ro,x-gvfs-hide
+
+[Install]
+WantedBy=default.target

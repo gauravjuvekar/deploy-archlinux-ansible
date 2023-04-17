@@ -77,6 +77,7 @@ official_lib_packages:
 pacman_packages: "{{ official_cli_packages + official_gui_packages + official_lib_packages }}"
 aur_cli_packages: []
 aur_lib_packages:
+  - bindfs
   - libreoffice-extension-apso
   - sqliteodbc
 aur_gui_packages:
@@ -119,7 +120,7 @@ dconf_settings:
   - { key: "/org/cinnamon/workspace-expo-view-as-grid", value: "true" }
   - { key: "/org/gnome/desktop/interface/clock-format", value: "'24h'" }
   - { key: "/org/nemo/icon-view/captions", value: "['mime_type', 'permissions', 'date_modified']" }
-  - { key: "/org/nemo/list-view/default-column-order", value: "['name', 'size', 'type', 'date_modified', 'date_created_with_time', 'date_accessed', 'date_created', 'detailed_type', 'group', 'where', 'mime_type', 'date_modified_with_time', 'octal_permissions', 'owner', 'permissions']" }
+  - { key: "/org/nemo/list-view/default-column-order", value: "['name', 'size', 'type', 'date_modified', 'date_created_with_time', 'date_accessed', 'date_created', 'detailed_type', 'group', 'where', 'mime_type', 'date_modified_with_time', 'octal_permissions', 'owner', 'permissions']" }  # noqa yaml[line-length]
   - { key: "/org/nemo/list-view/default-visible-columns", value: "['name', 'size', 'type', 'date_modified', 'mime_type', 'octal_permissions']" }
   - { key: "/org/nemo/preferences/date-format", value: "'informal'" }
   - { key: "/org/nemo/preferences/default-folder-viewer", value: "'list-view'" }
