@@ -9,6 +9,7 @@ official_gui_packages:
   - cinnamon
   - digikam
   - eog
+  - file-roller
   - firefox
   - flameshot
   - freecad
@@ -26,6 +27,7 @@ official_gui_packages:
   - meld
   - mpv
   - nemo
+  - nemo-fileroller
   - obs-studio
   - pdfarranger
   - screenkey
