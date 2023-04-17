@@ -122,6 +122,7 @@ dconf_settings:
   - { key: "/org/cinnamon/theme/name", value: "'Mint-Y-Dark'" }
   - { key: "/org/cinnamon/workspace-expo-view-as-grid", value: "true" }
   - { key: "/org/gnome/desktop/interface/clock-format", value: "'24h'" }
+  - { key: "/org/gnome/libgnomekbd/keyboard/options", value: "['caps\tcaps:swapescape', 'terminate\tterminate:ctrl_alt_bksp']" }
   - { key: "/org/gnucash/GnuCash/dialogs/business/invoice/enable-toolbuttons", value: "true" }
   - { key: "/org/gnucash/GnuCash/dialogs/commodities/include-iso", value: "true" }
   - { key: "/org/gnucash/GnuCash/dialogs/import/generic/atm-fee-threshold", value: "2.5" }
