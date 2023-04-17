@@ -119,6 +119,41 @@ dconf_settings:
   - { key: "/org/cinnamon/theme/name", value: "'Mint-Y-Dark'" }
   - { key: "/org/cinnamon/workspace-expo-view-as-grid", value: "true" }
   - { key: "/org/gnome/desktop/interface/clock-format", value: "'24h'" }
+  - { key: "/org/gnucash/GnuCash/dialogs/business/invoice/enable-toolbuttons", value: "true" }
+  - { key: "/org/gnucash/GnuCash/dialogs/commodities/include-iso", value: "true" }
+  - { key: "/org/gnucash/GnuCash/dialogs/import/generic/atm-fee-threshold", value: "2.5" }
+  - { key: "/org/gnucash/GnuCash/dialogs/import/generic/auto-add-threshold", value: "1.0" }
+  - { key: "/org/gnucash/GnuCash/dialogs/import/generic/auto-create-commodity", value: "true" }
+  - { key: "/org/gnucash/GnuCash/dialogs/import/generic/match-date-not-threshold", value: "7.0" }
+  - { key: "/org/gnucash/GnuCash/dialogs/import/generic/match-picker/display-reconciled", value: "true" }
+  - { key: "/org/gnucash/GnuCash/dialogs/import/generic/match-threshold", value: "0.0" }
+  - { key: "/org/gnucash/GnuCash/dialogs/import/generic/use-bayes", value: "true" }
+  - { key: "/org/gnucash/GnuCash/dialogs/tip-of-the-day/show-at-startup", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/auto-decimal-point", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/autosave-show-explanation", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/clock-24h", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/currency-choice-locale", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/currency-choice-other", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/date-backmonths", value: "6.0" }
+  - { key: "/org/gnucash/GnuCash/general/date-completion-sliding", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/date-completion-thisyear", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/negative-in-red", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/register/alternate-color-by-transaction", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/register/default-style-autoledger", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/register/default-style-journal", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/register/default-style-ledger", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/register/enter-moves-to-end", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/register/future-after-blank-transaction", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/register/show-leaf-account-names", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/register/use-gnucash-color-theme", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/report/currency-choice-other", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/reversed-accounts-credit", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/reversed-accounts-incomeexpense", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/reversed-accounts-none", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/show-account-color", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/show-account-color-tabs", value: "true" }
+  - { key: "/org/gnucash/GnuCash/general/summarybar-position-top", value: "false" }
+  - { key: "/org/gnucash/GnuCash/general/use-accouting-labels", value: "false" }
   - { key: "/org/nemo/icon-view/captions", value: "['mime_type', 'permissions', 'date_modified']" }
   - { key: "/org/nemo/list-view/default-column-order", value: "['name', 'size', 'type', 'date_modified', 'date_created_with_time', 'date_accessed', 'date_created', 'detailed_type', 'group', 'where', 'mime_type', 'date_modified_with_time', 'octal_permissions', 'owner', 'permissions']" }  # noqa yaml[line-length]
   - { key: "/org/nemo/list-view/default-visible-columns", value: "['name', 'size', 'type', 'date_modified', 'mime_type', 'octal_permissions']" }
