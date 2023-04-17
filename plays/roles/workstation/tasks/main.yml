@@ -19,6 +19,31 @@
     state: present
     update_cache: true
 
+- name: Enable_locales_en_US_UTF8
+  ansible.builtin.lineinfile:
+    path: "/etc/locale.gen"
+    insertafter: '^#en_US.UTF-8 UTF-8'
+    line: 'en_US.UTF-8 UTF-8'
+
+- name: Enable_locales_en_DK_UTF8
+  ansible.builtin.lineinfile:
+    path: "/etc/locale.gen"
+    insertafter: '^#en_DK.UTF-8 UTF-8'
+    line: 'en_DK.UTF-8 UTF-8'
+
+- name: Configure_locale
+  ansible.builtin.copy:
+    src: files/locale.conf
+    dest: /etc/locale.conf
+    mode: '0644'
+    owner: root
+    group: root
+
+- name: Generate_locales
+  ansible.builtin.command:  # noqa no-changed-when
+    argv:
+      - /usr/bin/locale-gen
+
 - name: Configure_dconf
   ansible.builtin.import_tasks: dconf.yml
 
