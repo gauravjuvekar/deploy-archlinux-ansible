@@ -71,6 +71,7 @@ official_cli_packages:
   - yubikey-personalization
 official_lib_packages:
   - gnome-keyring
+  - libdbi-drivers
   - libfido2
   - pam-u2f
   - unixodbc
