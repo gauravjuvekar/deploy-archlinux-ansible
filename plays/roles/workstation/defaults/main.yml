@@ -42,6 +42,9 @@ official_gui_packages:
   - yubikey-manager-qt
   - yubikey-personalization-gui
 official_cli_packages:
+  - ansible
+  - ansible-core
+  - ansible-lint
   - atop
   - base-devel
   - bat
