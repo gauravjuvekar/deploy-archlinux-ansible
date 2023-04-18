@@ -3,4 +3,4 @@
 	url = git@github.com:gauravjuvekar/vps2arch.git
 [submodule "plays/roles/ansible-firefox"]
 	path = plays/roles/firefox
-	url = https://github.com/gauravjuvekar/ansible-firefox.git
+	url = git@github.com:gauravjuvekar/ansible-firefox.git
