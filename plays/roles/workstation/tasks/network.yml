@@ -1,3 +1,11 @@
+- name: Enable_networkmanager_mdns
+  ansible.builtin.copy:
+    src: files/mdns.conf
+    dest: /etc/NetworkManager/conf.d/01_mdns.conf
+    owner: root
+    group: root
+    mode: '0644'
+
 - name: Enable_networkmanager
   ansible.builtin.systemd:
     name: NetworkManager
