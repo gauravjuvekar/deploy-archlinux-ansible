@@ -54,7 +54,9 @@ official_cli_packages:
   - fd
   - gdb
   - git
+  - git-filter-repo
   - htop
+  - inxi
   - iotop
   - iperf3
   - man-db
@@ -72,6 +74,7 @@ official_cli_packages:
   - the_silver_searcher
   - tree
   - websocat
+  - xclip
   - yubikey-manager
   - yubikey-personalization
 official_lib_packages:
@@ -81,7 +84,9 @@ official_lib_packages:
   - pam-u2f
   - unixodbc
 pacman_packages: "{{ official_cli_packages + official_gui_packages + official_lib_packages }}"
-aur_cli_packages: []
+aur_cli_packages:
+  - autojump-rs
+  - bfg
 aur_lib_packages:
   - bindfs
   - libreoffice-extension-apso
