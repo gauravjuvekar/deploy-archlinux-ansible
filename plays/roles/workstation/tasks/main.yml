@@ -78,3 +78,8 @@
   become: true
   become_user: "{{ main_user }}"
   ansible.builtin.import_tasks: autostart.yml
+
+- name: User_dotfiles
+  become: true
+  become_user: "{{ main_user }}"
+  ansible.builtin.import_tasks: dotfiles.yml
