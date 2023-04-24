@@ -50,6 +50,7 @@ official_cli_packages:
   - bat
   - bear
   - clang
+  - cmake
   - dust
   - fd
   - gdb
@@ -82,6 +83,7 @@ official_lib_packages:
   - libdbi-drivers
   - libfido2
   - pam-u2f
+  - python-pynvim
   - unixodbc
 pacman_packages: "{{ official_cli_packages + official_gui_packages + official_lib_packages }}"
 aur_cli_packages:

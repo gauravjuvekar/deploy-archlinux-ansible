@@ -1,0 +1,12 @@
+---
+- name: Clone_dotvim  # noqa latest[git]
+  ansible.builtin.git:
+    repo: "https://github.com/gauravjuvekar/dotvim.git"
+    dest: "/home/{{ main_user }}/.vim"
+
+- name: Install_vim
+  ansible.builtin.command:
+    chdir: "/home/{{ main_user }}/.vim"
+    argv:
+      - "/home/{{ main_user }}/.vim/install.sh"
+    creates: "/home/{{ main_user }}/.config/nvim/init.vim"

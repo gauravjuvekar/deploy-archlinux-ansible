@@ -74,3 +74,8 @@
   become: true
   become_user: "{{ main_user }}"
   ansible.builtin.import_tasks: dotfiles.yml
+
+- name: User_vim
+  become: true
+  become_user: "{{ main_user }}"
+  ansible.builtin.import_tasks: vim.yml
