@@ -56,10 +56,12 @@ official_cli_packages:
   - gdb
   - git
   - git-filter-repo
+  - hq
   - htop
   - inxi
   - iotop
   - iperf3
+  - jq
   - man-db
   - neovim
   - openbsd-netcat
@@ -76,6 +78,7 @@ official_cli_packages:
   - tree
   - websocat
   - xclip
+  - yq
   - yubikey-manager
   - yubikey-personalization
 official_lib_packages:
