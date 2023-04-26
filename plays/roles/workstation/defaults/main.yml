@@ -58,11 +58,13 @@ official_cli_packages:
   - git-filter-repo
   - hq
   - htop
+  - inotify-tools
   - inxi
   - iotop
   - iperf3
   - jq
   - man-db
+  - man-pages
   - neovim
   - openbsd-netcat
   - parallel
