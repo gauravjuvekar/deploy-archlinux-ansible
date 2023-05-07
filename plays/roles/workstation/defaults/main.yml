@@ -8,6 +8,7 @@ official_gui_packages:
   - chromium
   - cinnamon
   - digikam
+  - easyeffects
   - eog
   - file-roller
   - firefox
@@ -30,6 +31,7 @@ official_gui_packages:
   - nemo-fileroller
   - obs-studio
   - pdfarranger
+  - qpwgraph
   - screenkey
   - shotwell
   - shutter
@@ -84,12 +86,18 @@ official_cli_packages:
   - yubikey-manager
   - yubikey-personalization
 official_lib_packages:
+  - calf
   - gnome-keyring
   - libdbi-drivers
   - libfido2
+  - lsp-plugins-lv2
+  - mda.lv2
   - pam-u2f
+  - pipewire-alsa
+  - pipewire-pulse
   - python-pynvim
   - unixodbc
+  - zam-plugins-lv2
 pacman_packages: "{{ official_cli_packages + official_gui_packages + official_lib_packages }}"
 aur_cli_packages:
   - autojump-rs
