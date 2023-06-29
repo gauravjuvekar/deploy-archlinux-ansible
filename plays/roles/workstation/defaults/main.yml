@@ -76,6 +76,7 @@ official_cli_packages:
   - qpdf
   - ripgrep
   - rust
+  - screen
   - socat
   - sqlite
   - syncthing
