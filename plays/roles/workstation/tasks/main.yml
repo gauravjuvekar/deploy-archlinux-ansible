@@ -35,6 +35,9 @@
     owner: root
     group: root
 
+- name: Confugre_screen
+  ansible.builtin.import_tasks: screen.yml
+
 - name: Configure_dconf
   ansible.builtin.import_tasks: dconf.yml
 

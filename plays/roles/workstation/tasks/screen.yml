@@ -1,0 +1,9 @@
+- name: Configure_screen_systemwide
+  ansible.builtin.blockinfile:
+    path: "/etc/screenrc"
+    block: |
+      # Enable mouse scrolling and scroll bar history scrolling
+      termcapinfo xterm* ti@:te@
+    mode: '0644'
+    owner: root
+    group: root
