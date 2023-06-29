@@ -114,6 +114,7 @@ aur_gui_packages:
   - all-repository-fonts
   - mint-themes
   - mint-x-icons
+  - openrgb
   - syncthing-gtk
   - ttf-comic-mono-git
   - ttf-tahoma
