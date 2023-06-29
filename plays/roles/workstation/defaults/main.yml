@@ -10,6 +10,7 @@ official_gui_packages:
   - digikam
   - easyeffects
   - eog
+  - evolution
   - file-roller
   - firefox
   - flameshot
