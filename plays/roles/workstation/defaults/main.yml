@@ -72,6 +72,7 @@ official_cli_packages:
   - parallel
   - pdftk
   - python-pdftotext
+  - python-poetry
   - qpdf
   - ripgrep
   - rust
@@ -102,6 +103,7 @@ pacman_packages: "{{ official_cli_packages + official_gui_packages + official_li
 aur_cli_packages:
   - autojump-rs
   - bfg
+  - downgrade
 aur_lib_packages:
   - bindfs
   - libreoffice-extension-apso
