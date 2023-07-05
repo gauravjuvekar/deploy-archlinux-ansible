@@ -68,6 +68,7 @@ official_cli_packages:
   - jq
   - man-db
   - man-pages
+  - massif-visualizer
   - neovim
   - openbsd-netcat
   - parallel
@@ -83,6 +84,7 @@ official_cli_packages:
   - syncthing
   - the_silver_searcher
   - tree
+  - valgrind
   - websocat
   - xclip
   - yq
