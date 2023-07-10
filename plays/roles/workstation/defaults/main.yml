@@ -72,6 +72,7 @@ official_cli_packages:
   - neovim
   - openbsd-netcat
   - parallel
+  - pass
   - pdftk
   - python-pdftotext
   - python-poetry

@@ -1,0 +1,9 @@
+- name: Set_password_store_symlink
+  become: true
+  become_user: "{{ main_user }}"
+  ansible.builtin.file:
+    state: link
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    path: "/home/{{ main_user }}/.password-store"
+    src: "/home/{{ main_user }}/Documents/auth/pass/"

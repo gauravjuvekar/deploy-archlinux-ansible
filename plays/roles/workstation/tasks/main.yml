@@ -82,3 +82,8 @@
   become: true
   become_user: "{{ main_user }}"
   ansible.builtin.import_tasks: vim.yml
+
+- name: User_pass
+  become: true
+  become_user: "{{ main_user }}"
+  ansible.builtin.import_tasks: pass.yml
