@@ -2,6 +2,7 @@
 aur_builder_username: pkgs
 official_gui_packages:
   - alacritty
+  - arandr
   - baobab
   - barrier
   - bless
