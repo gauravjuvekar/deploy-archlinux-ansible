@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Shutter
-Exec=shutter
+Exec=shutter --min_at_startup
 Icon=shutter
 Terminal=false
 Type=Application
