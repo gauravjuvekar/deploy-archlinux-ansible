@@ -23,6 +23,7 @@ official_gui_packages:
   - gnome-system-monitor
   - gnome-terminal
   - gnucash
+  - gparted
   - gvim
   - inkscape
   - kicad
