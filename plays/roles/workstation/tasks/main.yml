@@ -35,6 +35,9 @@
     owner: root
     group: root
 
+- name: Configure_main_user
+  ansible.builtin.import_tasks: user.yml
+
 - name: Confugre_screen
   ansible.builtin.import_tasks: screen.yml
 

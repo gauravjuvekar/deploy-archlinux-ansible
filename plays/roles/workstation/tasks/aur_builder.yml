@@ -5,10 +5,7 @@
     create_home: true
 
 - name: Install_sudo_prereqs
-  community.general.pacman:
-    name:
-      - sudo
-    state: present
+  ansible.builtin.import_tasks: sudo.yml
 
 - name: Allow_pkgs_sudo
   ansible.builtin.lineinfile:

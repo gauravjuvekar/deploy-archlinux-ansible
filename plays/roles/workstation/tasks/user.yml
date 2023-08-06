@@ -1,0 +1,11 @@
+---
+- name: Install_sudo_prereqs
+  ansible.builtin.import_tasks: sudo.yml
+
+- name: Make_main_user
+  ansible.builtin.user:
+    name: "{{ main_user }}"
+    create_home: true
+    groups:
+      - wheel
+    append: true

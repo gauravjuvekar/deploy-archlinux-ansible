@@ -1,0 +1,16 @@
+---
+- name: Install_sudo_prereqs
+  community.general.pacman:
+    name:
+      - sudo
+    state: present
+
+- name: Allow_wheel_to_sudo
+  ansible.builtin.lineinfile:
+    path: "/etc/sudoers.d/01_wheel"
+    line: "%wheel ALL=(ALL:ALL) ALL"
+    create: true
+    owner: root
+    group: root
+    mode: '0640'
+    validate: 'visudo -cf %s'
