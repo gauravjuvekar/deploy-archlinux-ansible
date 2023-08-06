@@ -73,6 +73,7 @@ official_cli_packages:
   - man-pages
   - massif-visualizer
   - neovim
+  - nvme-cli
   - openbsd-netcat
   - parallel
   - pass
@@ -83,6 +84,7 @@ official_cli_packages:
   - ripgrep
   - rust
   - screen
+  - smartmontools
   - socat
   - sqlite
   - syncthing
