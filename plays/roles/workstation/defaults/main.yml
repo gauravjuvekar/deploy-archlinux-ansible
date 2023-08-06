@@ -42,6 +42,7 @@ official_gui_packages:
   - xcursor-themes
   - xcursor-vanilla-dmz
   - xcursor-vanilla-dmz-aa
+  - xorg-xkill
   - xreader
   - yubikey-manager-qt
   - yubikey-personalization-gui
