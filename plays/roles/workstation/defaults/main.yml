@@ -74,6 +74,7 @@ official_cli_packages:
   - man-pages
   - massif-visualizer
   - neovim
+  - nix
   - nvme-cli
   - openbsd-netcat
   - parallel
@@ -81,6 +82,7 @@ official_cli_packages:
   - pdftk
   - python-pdftotext
   - python-poetry
+  - qemu-user-static
   - qpdf
   - ripgrep
   - rust
