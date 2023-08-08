@@ -90,3 +90,6 @@
   become: true
   become_user: "{{ main_user }}"
   ansible.builtin.import_tasks: pass.yml
+
+- name: Configure_nix
+  ansible.builtin.import_tasks: nix.yml

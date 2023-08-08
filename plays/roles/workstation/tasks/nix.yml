@@ -1,0 +1,12 @@
+- name: Nix_experimental_features
+  ansible.builtin.blockinfile:
+    path: "/etc/nix/nix.conf"
+    block: |
+      extra-experimental-features = nix-command
+
+- name: Enable_nix_daemon
+  ansible.builtin.systemd:
+    name: nix-daemon
+    enabled: true
+    state: started
+    scope: system
