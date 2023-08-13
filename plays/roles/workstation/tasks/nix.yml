@@ -2,7 +2,13 @@
   ansible.builtin.blockinfile:
     path: "/etc/nix/nix.conf"
     block: |
+      cores = 0
+      extra-experimental-features = flakes
       extra-experimental-features = nix-command
+      extra-experimental-features = repl-flake
+      extra-platforms = aarch64-linux arm-linux qemu-user
+      extra-sandbox-paths = /usr/bin/qemu-aarch64-static
+      max-jobs = auto
 
 - name: Enable_nix_daemon
   ansible.builtin.systemd:

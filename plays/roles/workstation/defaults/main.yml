@@ -82,7 +82,9 @@ official_cli_packages:
   - pdftk
   - python-pdftotext
   - python-poetry
+  - qemu-system-aarch64
   - qemu-user-static
+  - qemu-user-static-binfmt
   - qpdf
   - ripgrep
   - rust
