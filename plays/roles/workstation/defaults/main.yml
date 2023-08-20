@@ -65,6 +65,7 @@ official_cli_packages:
   - gdb
   - git
   - git-filter-repo
+  - github-cli
   - hq
   - htop
   - inotify-tools
