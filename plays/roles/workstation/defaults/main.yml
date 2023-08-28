@@ -42,6 +42,8 @@ official_gui_packages:
   - shotwell
   - shutter
   - sqlitebrowser
+  - systray-x-common
+  - thunderbird
   - vlc
   - xcursor-themes
   - xcursor-vanilla-dmz
